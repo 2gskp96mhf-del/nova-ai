@@ -212,6 +212,44 @@ input.value="";
 
 </div>
 
+<div id="chat">
+  <div>Привет! Я Nova 👋</div>
+</div>
 
+<input id="message" placeholder="Напишите сообщение...">
+
+<button onclick="sendMessage()">Отправить</button>
+
+<script>
+async function sendMessage() {
+  const input = document.getElementById("message");
+  const text = input.value;
+
+  if (!text) return;
+
+  document.getElementById("chat").innerHTML +=
+  "<p><b>Вы:</b> " + text + "</p>";
+
+  const response = await fetch(
+    "https://nova-ai.s67471219.workers.dev/",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: text
+      })
+    }
+  );
+
+  const data = await response.json();
+
+  document.getElementById("chat").innerHTML +=
+  "<p><b>Nova:</b> " + data.reply + "</p>";
+
+  input.value = "";
+}
+</script>
 </body>
 </html>
