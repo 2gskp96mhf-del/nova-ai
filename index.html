@@ -8,81 +8,110 @@
 
 <style>
 
-body {
-    margin: 0;
-    height: 100vh;
-    background: #050505;
-    color: white;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+* {
+    box-sizing: border-box;
 }
 
-.container {
-    text-align: center;
-    width: 90%;
+body {
+    margin:0;
+    height:100vh;
+    background:#050505;
+    color:white;
+    font-family:-apple-system, BlinkMacSystemFont, Arial;
+    display:flex;
+    flex-direction:column;
+}
+
+.header {
+    text-align:center;
+    padding:35px 0 20px;
 }
 
 .core {
-    width: 120px;
-    height: 120px;
-    margin: auto;
-    border-radius: 50%;
-    border: 3px solid white;
+    width:130px;
+    height:130px;
+    margin:auto;
+    border-radius:50%;
+    border:2px solid white;
     box-shadow:
-    0 0 20px #ffffff,
-    0 0 50px #2563eb;
-    animation: pulse 2s infinite;
+    0 0 25px white,
+    0 0 60px #2563eb;
+    animation:pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-
     50% {
-        transform: scale(1.08);
-    }
-
-    100% {
-        transform: scale(1);
+        transform:scale(1.08);
     }
 }
 
 h1 {
-    font-size: 42px;
-    letter-spacing: 5px;
-    margin-top: 30px;
+    letter-spacing:8px;
+    font-size:38px;
+    margin:25px 0 5px;
 }
 
-.subtitle {
-    color: #aaa;
-    font-size: 16px;
+.status {
+    color:#aaa;
 }
 
 .chat {
-    margin-top: 40px;
+    flex:1;
+    padding:20px;
+    text-align:center;
+}
+
+.message {
+    background:#111;
+    border-radius:20px;
+    padding:15px;
+    margin:20px 0;
+}
+
+.input {
+    position:fixed;
+    bottom:75px;
+    left:5%;
+    width:90%;
+    display:flex;
 }
 
 input {
-    width: 80%;
-    padding: 15px;
-    border-radius: 25px;
-    border: none;
-    background: #111;
-    color: white;
-    font-size: 16px;
+    flex:1;
+    padding:15px;
+    border-radius:25px;
+    border:none;
+    background:#151515;
+    color:white;
 }
 
 button {
-    margin-top: 15px;
-    padding: 14px 35px;
-    border-radius: 25px;
-    border: none;
-    background: white;
-    color: black;
-    font-size: 16px;
+    margin-left:10px;
+    border-radius:50%;
+    width:50px;
+    border:none;
+}
+
+.menu {
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:65px;
+    background:#0b0b0b;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.item {
+    color:#aaa;
+    font-size:12px;
+    text-align:center;
+}
+
+.item span {
+    display:block;
+    font-size:22px;
 }
 
 </style>
@@ -91,29 +120,66 @@ button {
 
 <body>
 
-<div class="container">
+<div class="header">
 
 <div class="core"></div>
 
 <h1>NOVA</h1>
 
-<div class="subtitle">
-Personal AI Assistant
+<div class="status">
+Personal AI Assistant • Online
 </div>
+
+</div>
+
 
 <div class="chat">
 
+<div class="message">
+Привет. Я Nova. Готова помочь.
+</div>
+
+</div>
+
+
+<div class="input">
+
 <input placeholder="Напишите Nova...">
 
-<br>
-
-<button>
-Отправить
-</button>
+<button>➤</button>
 
 </div>
 
+
+<div class="menu">
+
+<div class="item">
+<span>💬</span>
+Чат
 </div>
+
+<div class="item">
+<span>📋</span>
+Задачи
+</div>
+
+<div class="item">
+<span>🔍</span>
+Поиск
+</div>
+
+<div class="item">
+<span>🧠</span>
+Память
+</div>
+
+<div class="item">
+<span>⚙️</span>
+Настройки
+</div>
+
+</div>
+
 
 </body>
 </html>
